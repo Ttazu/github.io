@@ -1,85 +1,55 @@
-/* =========== Custom Portfolio Styles =========== */
-
-/* 1) IMPORT FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@700&display=swap');
-
-/* 2) RESET & BASE */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #fafafa;
-}
-
-/* 3) CONTAINERS */
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-  padding: 0 1rem;
-}
-
-/* 4) NAVBAR */
-.navbar {
-  background: rgba(34,34,34,0.85);
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  padding: 1rem 0;
-}
-.navbar .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  color: #ffdd57;
-  text-decoration: none;
-}
-.navbar .menu li {
-  display: inline-block;
-  margin-left: 1.5rem;
-}
-.navbar .menu a {
-  color: #fff;
-  text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  transition: color 0.3s;
-}
-.navbar .menu a:hover,
-.navbar .menu a.active {
-  color: #ffdd57;
-}
-.navbar .menu a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #ffdd57;
-}
-
-/* 5) HERO WITH IMAGE & OVERLAY */
+/* Hero Section – Pure CSS Gradient & Shapes */
 .hero {
   position: relative;
-  background: url('https://via.placeholder.com/1600x600/222/fff?text=Welcome') center/cover no-repeat;
+  background: linear-gradient(135deg, #222 25%, #444 75%);
   color: #fff;
   text-align: center;
   padding: 6rem 1rem;
+  overflow: hidden;
 }
+
+/* Decorative Circles */
+.hero::before,
 .hero::after {
   content: '';
-  position: absolute; top:0; left:0; right:0; bottom:0;
-  background: rgba(0,0,0,0.5);
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
 }
+
+.hero::before {
+  width: 400px;
+  height: 400px;
+  background: #ffdd57;
+  top: -100px;
+  left: -100px;
+}
+
+.hero::after {
+  width: 600px;
+  height: 600px;
+  background: #007acc;
+  bottom: -200px;
+  right: -200px;
+}
+
+/* Z‑index adjustment so text sits above shapes */
 .hero .container {
   position: relative;
   z-index: 1;
 }
+
+/* Headline & Subhead */
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   margin-bottom: 1rem;
 }
 .hero p {
-  font-size: 1
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero .btn {
+  background: #ffdd57;
+  color: #222;
+}
